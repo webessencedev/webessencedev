@@ -88,10 +88,15 @@ function HomeScreen() {
         <img data-aos="fade-left" data-aos-duration="3000" className="w-40" src={timerMan} />
       </div>
       <div className="svg-bg min-w-screen h-72" style={{ backgroundImage: `url(${stepTransition})`}}></div>
-      <div className="bg-primary grid grid-rows-2 justify-items-center">
+      <div className="bg-primary grid grid-rows-3 justify-items-center">
         <h2 className="h2 text-white p-10">Contact Us</h2>
+        <p>
+          If you're interested, we'd be excited to accompany you on your journey
+          in elevating your online presence. Please get in contact using the form below
+          and we will get in touch to discuss further details.
+        </p>
         <div className="grid grid-cols-3">
-          <h3>Email</h3>
+          <h3>Email: </h3>
           <h3>Email</h3>
           <h3>Email</h3>
         </div>
