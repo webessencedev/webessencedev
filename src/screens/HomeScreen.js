@@ -1,13 +1,16 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { FaCubes } from "react-icons/fa";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import largeSplash from "../assets/svgs/backgrounds/horizontal-home.svg";
 import smallSplash from "../assets/svgs/backgrounds/vertical-home.svg";
 import wavyTransition from '../assets/svgs/transitions/wave-up.svg'
 import smallWavyTransition from '../assets/svgs/transitions/small-wave-down.svg'
+import stepTransition from '../assets/svgs/transitions/step-transition.svg'
 import timerMan from '../assets/svgs/infographics/organisation1.svg'
 import resizeVideo from '../assets/video/instagram-card-resize.MP4'
 import Perspective from '../components/utilities/Perspective'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
 function HomeScreen() {
   // custom hook to grab our screen width
@@ -15,14 +18,20 @@ function HomeScreen() {
   // assigning which image to use
   const bgImg = width >= 768 ? `url(${largeSplash})` : `url(${smallSplash})`;
 
+  useEffect(() => {
+    Aos.init({
+      duration: 500
+    })
+  }, [])
+
   return (
-    <div className="flex flex-col">
+    <div className="easeload flex flex-col">
       <div className="h-32 bg-primary -mb-10"></div>
       <div
         className="svg-bg bg-bottom"
         style={{ backgroundImage: bgImg, height: `${height*0.6}px` }}
       >
-        <div className="flex flex-col text-center mt-10 mx-auto text-white md:text-left md:ml-32 md:mt-40 lg:ml-72 lg:mt-50">
+        <div data-aos="fade-right" className="flex flex-col text-center mt-10 mx-auto text-white md:text-left md:ml-32 md:mt-40 lg:ml-72 lg:mt-50">
           <h2 className="text-5xl lg:text-7xl">WebEssence</h2>
           <div className="hidden sm:block text-white">
             <p className="py-4 md:text-2xl">
@@ -32,7 +41,7 @@ function HomeScreen() {
           <FaCubes className="m-10 mx-auto md:m-10 w-16 lg:w-20 h-16 lg:h-20" />
         </div>
       </div>
-      <div className="flex justify-center px-10 flex-wrap">
+      <div data-aos="fade-right" className="flex justify-center px-10 flex-wrap">
         <div className="text-center px-10 container max-w-lg">
           <h2 className="h2">Focussing on the smaller people</h2>
           <p className="py-8">
@@ -45,7 +54,7 @@ function HomeScreen() {
             presence.
           </p>
         </div>
-        <img className="h-60 w-60" alt='small-person' src="https://cdn4.vectorstock.com/i/1000x1000/33/63/person-gray-photo-placeholder-woman-vector-22863363.jpg"  />
+        <img data-aos="fade-left" className="h-60 w-60" alt='small-person' src="https://cdn4.vectorstock.com/i/1000x1000/33/63/person-gray-photo-placeholder-woman-vector-22863363.jpg"  />
       </div>
       <div className="svg-bg min-w-screen h-72 bg-top" style={{ backgroundImage: `url(${wavyTransition})` }}></div>
       <div className="flex flex-col justify-center px-10 flex-wrap bg-primary">
@@ -56,13 +65,13 @@ function HomeScreen() {
             some nice animations or responsiveness. It's the 21st cetuary and these things are commonplace in a website
             and you absolutely shouldn't have to pay extra for them.
           </p>
-          <video className="mx-auto rounded-lg shadow-inner m-10" autoPlay loop muted width="320" height="240">
+          <video data-aos="fade-up" className="mx-auto rounded-lg shadow-inner m-10" autoPlay loop muted width="320" height="240">
             <source src={resizeVideo} type="video/mp4" />
           </video>
         </div>
       </div>
       <div className="svg-bg h-40 min-w-screen bg-top" style={{ backgroundImage: `url(${smallWavyTransition})` }}></div>
-      <div className="flex flex-wrap sm:flex-nowrap mx-auto py-10">
+      <div className="flex flex-wrap sm:flex-nowrap mx-auto p-10">
         <Perspective xRotate={10} yRotate={10}>
           <div className='card p-10'>
             <h2 className="h2 text-white">Free Consultation 🚀</h2>
@@ -76,7 +85,16 @@ function HomeScreen() {
             </p>
           </div>
         </Perspective>
-        <img className="w-40" src={timerMan} />
+        <img data-aos="fade-left" data-aos-duration="3000" className="w-40" src={timerMan} />
+      </div>
+      <div className="svg-bg min-w-screen h-72" style={{ backgroundImage: `url(${stepTransition})`}}></div>
+      <div className="bg-primary grid grid-rows-2 justify-items-center">
+        <h2 className="h2 text-white p-10">Contact Us</h2>
+        <div className="grid grid-cols-3">
+          <h3>Email</h3>
+          <h3>Email</h3>
+          <h3>Email</h3>
+        </div>
       </div>
     </div>
   );
