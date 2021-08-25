@@ -2,7 +2,6 @@ import React, {useEffect} from "react";
 import { FaCubes } from "react-icons/fa";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import largeSplash from "../assets/svgs/backgrounds/horizontal-home.svg";
-import smallSplash from "../assets/svgs/backgrounds/vertical-home.svg";
 import wavyTransition from '../assets/svgs/transitions/wave-up.svg'
 import smallWavyTransition from '../assets/svgs/transitions/small-wave-down.svg'
 import stepTransition from '../assets/svgs/transitions/step-transition.svg'
@@ -11,12 +10,11 @@ import resizeVideo from '../assets/video/instagram-card-resize.MP4'
 import Perspective from '../components/utilities/Perspective'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
+import { getElementById } from "domutils";
 
 function HomeScreen() {
   // custom hook to grab our screen width
-  const { height, width } = useWindowDimensions();
-  // assigning which image to use
-  const bgImg = width >= 768 ? `url(${largeSplash})` : `url(${smallSplash})`;
+  const { height } = useWindowDimensions();
 
   useEffect(() => {
     Aos.init({
@@ -25,20 +23,27 @@ function HomeScreen() {
   }, [])
 
   return (
-    <div className="easeload flex flex-col">
-      <div className="h-32 bg-primary -mb-10"></div>
+    <div className="flex flex-col">
+      <div className="h-16 bg-primary -mb-1">
+      <div className="bg-secondary bg-gradient-to-b from-secondary to-primary sm:from-primary sm:flex justify-center sm:justify-end">
+        <div onClick={() => {
+          window.scrollTo({top: 1000000000000000, behavior: 'smooth', })
+        }} className="text-center  hover:text-primary sm:inline sm:text-right p-3 rounded-bl-2xl transition duration-500 text-white text-3xl hover:bg-secondary">Contact Us</div>
+      </div>
+
+      </div>
       <div
         className="svg-bg bg-bottom"
-        style={{ backgroundImage: bgImg, height: `${height*0.6}px` }}
+        style={{ backgroundImage: `url(${largeSplash})`, height: `${height >1000 ? height*0.6 : 1000*0.6}px` }}
       >
-        <div data-aos="fade-right" className="flex flex-col text-center mt-10 mx-auto text-white md:text-left md:ml-32 md:mt-40 lg:ml-72 lg:mt-50">
+        <div data-aos="fade-right" className="flex flex-col text-center mt-10 mx-auto text-white sm:text-left sm:ml-32 sm:mt-40 lg:ml-72 lg:mt-50">
           <h2 className="text-5xl lg:text-7xl">WebEssence</h2>
           <div className="hidden sm:block text-white">
             <p className="py-4 md:text-2xl">
               Working together to build your dreams
             </p>
           </div>
-          <FaCubes className="m-10 mx-auto md:m-10 w-16 lg:w-20 h-16 lg:h-20" />
+          <FaCubes className="m-10 mx-auto sm:m-10 w-16 lg:w-20 h-16 lg:h-20" />
         </div>
       </div>
       <div data-aos="fade-right" className="flex justify-center px-10 flex-wrap">
@@ -65,7 +70,7 @@ function HomeScreen() {
             some nice animations or responsiveness. It's the 21st cetuary and these things are commonplace in a website
             and you absolutely shouldn't have to pay extra for them.
           </p>
-          <video data-aos="fade-up" className="mx-auto rounded-lg shadow-inner m-10" autoPlay loop muted width="320" height="240">
+          <video data-aos="fade-up" className="mx-auto rounded-lg shadow-inner m-10" autoPlay playsInline loop muted width="320" height="240">
             <source src={resizeVideo} type="video/mp4" />
           </video>
         </div>
@@ -88,17 +93,15 @@ function HomeScreen() {
         <img data-aos="fade-left" data-aos-duration="3000" className="w-40" src={timerMan} />
       </div>
       <div className="svg-bg min-w-screen h-72" style={{ backgroundImage: `url(${stepTransition})`}}></div>
-      <div className="bg-primary grid grid-rows-3 justify-items-center">
-        <h2 className="h2 text-white p-10">Contact Us</h2>
-        <p>
-          If you're interested, we'd be excited to accompany you on your journey
-          in elevating your online presence. Please get in contact using the form below
-          and we will get in touch to discuss further details.
-        </p>
-        <div className="grid grid-cols-3">
-          <h3>Email: </h3>
-          <h3>Email</h3>
-          <h3>Email</h3>
+      <div className="bg-primary -mt-5">
+        <div className="mx-auto px-10 container max-w-lg text-white grid grid-rows-3 justify-items-center">
+          <h2 id="contact" className="h2 p-10">Contact Us</h2>
+          <p>
+            If you're interested, we'd be excited to accompany you on your journey
+            in elevating your online presence. Please get in contact using the form below
+            and we will get in touch to discuss further details.
+          </p>
+            <a href="mailto:webessencedev@gmail.com" className="text-2xl transform transition duration-500 animate-pulse hover:text-red-500 hover:scale-110">Email: webessencedev@gmail.com</a>
         </div>
       </div>
     </div>
