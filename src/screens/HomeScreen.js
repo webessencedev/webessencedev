@@ -6,11 +6,11 @@ import wavyTransition from '../assets/svgs/transitions/wave-up.svg'
 import smallWavyTransition from '../assets/svgs/transitions/small-wave-down.svg'
 import stepTransition from '../assets/svgs/transitions/step-transition.svg'
 import timerMan from '../assets/svgs/infographics/organisation1.svg'
+import podiumVec from '../assets/svgs/infographics/podium.svg'
 import resizeVideo from '../assets/video/instagram-card-resize.MP4'
 import Perspective from '../components/utilities/Perspective'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
-import { getElementById } from "domutils";
 
 function HomeScreen() {
   // custom hook to grab our screen width
@@ -22,13 +22,20 @@ function HomeScreen() {
     })
   }, [])
 
+  const scrollHander = (e) => {
+    e.preventDefault()
+    const target = e.target.getAttribute('href')
+    const location = document.querySelector(target).offsetTop
+    window.scrollTo({left: 0, top: location, behavior: 'smooth', })
+  }
+
   return (
     <div className="flex flex-col">
+
+      {/* splas screen */}
       <div className="h-16 bg-primary -mb-1">
-      <div className="bg-secondary bg-gradient-to-b from-secondary to-primary sm:from-primary sm:flex justify-center sm:justify-end">
-        <div onClick={() => {
-          window.scrollTo({top: 1000000000000000, behavior: 'smooth', })
-        }} className="text-center  hover:text-primary sm:inline sm:text-right p-3 rounded-bl-2xl transition duration-500 text-white text-3xl hover:bg-secondary">Contact Us</div>
+      <div className="bg-secondary text-center text-white p-3">
+        <a onClick={(e) => scrollHander(e)} href="#contact" className="text-center transition duration-500 text-3xl hover:text-primary p-3">Contact Us</a>
       </div>
 
       </div>
@@ -46,7 +53,9 @@ function HomeScreen() {
           <FaCubes className="m-10 mx-auto sm:m-10 w-16 lg:w-20 h-16 lg:h-20" />
         </div>
       </div>
-      <div data-aos="fade-right" className="flex justify-center px-10 flex-wrap">
+
+      {/* Intro */}
+      <div data-aos="fade-right" className="flex -mt-1 justify-center px-10 flex-wrap">
         <div className="text-center px-10 container max-w-lg">
           <h2 className="h2">Focussing on the smaller people</h2>
           <p className="py-8">
@@ -59,7 +68,7 @@ function HomeScreen() {
             presence.
           </p>
         </div>
-        <img data-aos="fade-left" className="h-60 w-60" alt='small-person' src="https://cdn4.vectorstock.com/i/1000x1000/33/63/person-gray-photo-placeholder-woman-vector-22863363.jpg"  />
+        <img data-aos="fade-left" className="h-72 w-72" alt='small-person' src={podiumVec}  />
       </div>
       <div className="svg-bg min-w-screen h-72 bg-top" style={{ backgroundImage: `url(${wavyTransition})` }}></div>
       <div className="flex flex-col justify-center px-10 flex-wrap bg-primary">
@@ -90,18 +99,24 @@ function HomeScreen() {
             </p>
           </div>
         </Perspective>
-        <img data-aos="fade-left" data-aos-duration="3000" className="w-40" src={timerMan} />
+        <img data-aos="fade-left" data-aos-duration="3000" className="w-40" alt="man on timer showing that we need to be organised" src={timerMan} />
       </div>
       <div className="svg-bg min-w-screen h-72" style={{ backgroundImage: `url(${stepTransition})`}}></div>
       <div className="bg-primary -mt-5">
-        <div className="mx-auto px-10 container max-w-lg text-white grid grid-rows-3 justify-items-center">
-          <h2 id="contact" className="h2 p-10">Contact Us</h2>
+        <div className="mx-auto px-10 container max-w-lg text-white flex flex-col justify-items-center">
+          <h2 id="contact" className="h2 p-10 mx-auto">Contact Us</h2>
           <p>
             If you're interested, we'd be excited to accompany you on your journey
             in elevating your online presence. Please get in contact using the form below
             and we will get in touch to discuss further details.
+            <br />
+            As we have said, we value transparency. Because of this, we don't provide general flat pricing
+            as we feel that if something were to even require a higher price-tag, we wouldn't want to have to
+            retroactively appraoch the customer for further consultation. So please, if you're interested,
+            reach out via the email below, have a consultation, and we can arrive at a quote we both aggree
+            with.
           </p>
-            <a href="mailto:webessencedev@gmail.com" className="text-2xl transform transition duration-500 animate-pulse hover:text-red-500 hover:scale-110">Email: webessencedev@gmail.com</a>
+            <a href="mailto:webessencedev@gmail.com" className="text-center text-secondary text-2xl transform transition py-5 border-4 rounded-xl my-5 duration-500 animate-pulse hover:text-red-500 hover:scale-110">Email: webessencedev@gmail.com</a>
         </div>
       </div>
     </div>
