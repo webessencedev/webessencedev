@@ -1,32 +1,31 @@
 {
   "files": {
-    "main.css": "/static/css/main.12610d1c.chunk.css",
-    "main.js": "/static/js/main.7d5e1d48.chunk.js",
-    "main.js.map": "/static/js/main.7d5e1d48.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.bef9110c.js",
-    "runtime-main.js.map": "/static/js/runtime-main.bef9110c.js.map",
+    "main.css": "/static/css/main.9cb9231e.chunk.css",
+    "main.js": "/static/js/main.4058fa59.chunk.js",
+    "main.js.map": "/static/js/main.4058fa59.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.574ef5b8.js",
+    "runtime-main.js.map": "/static/js/runtime-main.574ef5b8.js.map",
     "static/css/2.207e99fc.chunk.css": "/static/css/2.207e99fc.chunk.css",
     "static/js/2.9f041b7a.chunk.js": "/static/js/2.9f041b7a.chunk.js",
     "static/js/2.9f041b7a.chunk.js.map": "/static/js/2.9f041b7a.chunk.js.map",
-    "static/js/3.18807d3e.chunk.js": "/static/js/3.18807d3e.chunk.js",
-    "static/js/3.18807d3e.chunk.js.map": "/static/js/3.18807d3e.chunk.js.map",
+    "static/js/3.0eb37a03.chunk.js": "/static/js/3.0eb37a03.chunk.js",
+    "static/js/3.0eb37a03.chunk.js.map": "/static/js/3.0eb37a03.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.207e99fc.chunk.css.map": "/static/css/2.207e99fc.chunk.css.map",
-    "static/css/main.12610d1c.chunk.css.map": "/static/css/main.12610d1c.chunk.css.map",
+    "static/css/main.9cb9231e.chunk.css.map": "/static/css/main.9cb9231e.chunk.css.map",
     "static/js/2.9f041b7a.chunk.js.LICENSE.txt": "/static/js/2.9f041b7a.chunk.js.LICENSE.txt",
     "static/media/horizontal-home.17dd32c9.svg": "/static/media/horizontal-home.17dd32c9.svg",
     "static/media/instagram-card-resize.35781ae0.MP4": "/static/media/instagram-card-resize.35781ae0.MP4",
     "static/media/organisation1.d7461be7.svg": "/static/media/organisation1.d7461be7.svg",
     "static/media/small-wave-down.a702fcf7.svg": "/static/media/small-wave-down.a702fcf7.svg",
     "static/media/step-transition.dc64e023.svg": "/static/media/step-transition.dc64e023.svg",
-    "static/media/vertical-home.706547a7.svg": "/static/media/vertical-home.706547a7.svg",
     "static/media/wave-up.d733fc9d.svg": "/static/media/wave-up.d733fc9d.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.bef9110c.js",
+    "static/js/runtime-main.574ef5b8.js",
     "static/css/2.207e99fc.chunk.css",
     "static/js/2.9f041b7a.chunk.js",
-    "static/css/main.12610d1c.chunk.css",
-    "static/js/main.7d5e1d48.chunk.js"
+    "static/css/main.9cb9231e.chunk.css",
+    "static/js/main.4058fa59.chunk.js"
   ]
 }
